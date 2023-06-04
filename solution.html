@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>THE SOLUTION</title>
+
+</head>
+
+<body>
+  <header>
+    <img src="gemflowlogo.png" width="100" class="logo">
+    <nav class="navigation">
+      <ul>
+        <a href="index.html" class="header-link" onclick="toggleBackground(this)">HOME</a>
+        <a href="problem.html" class="header-link" onclick="toggleBackground(this)">THE PROBLEM</a>
+        <a href="solution.html" class="header-link" onclick="toggleBackground(this)">THE SOLUTION</a>
+        <a href="contacts.html" class="header-link" onclick="toggleBackground(this)">CONTACT</a>
+      </ul>
+    </nav>
+  </header>
+  <section class="solution">
+    <h1 class="text10">The Solution</h1>
+    <p class="text12">At the end of the day <span class="highlighted"><b>everyone</b></span> should have access to <span
+        class="highlighted"><b>safe period products</b></span> that are good for your body and for our planet. Through
+      utilizing reusable menstrual products, increasing education and awareness, and leading on new innovation and
+      research, we can fix this problem, together.</p>
+  </section>
+
+  <section class="graphics">
+    <h2 class="text13">Product Recommendations</h2>
+    <div class="row">
+      <div class="graphic-col">
+        <img src="cup.png" width="400">
+        <div class="layer">
+          <h3>Menstrual Cup</h3>
+        </div>
+      </div>
+      <div class="graphic-col">
+        <img src="pad.png" width="400" height="200">
+        <div class="layer">
+          <h3>Sanitary Pad</h3>
+        </div>
+      </div>
+      <div class="graphic-col">
+        <img src="undies.png" width="400">
+        <div class="layer">
+          <h3>Reusable <br>Underwear</h3>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="action">
+    <h1 class="text14">Take Action Today!</h1>
+    <h3 class="text15">Learn about different menstrual products to make an informed choice about what is right for you.
+    </h3>
+    <h3 class="text16">Break the stigma, have conversations about sustainable menstrual products with family and
+      friends.</h3>
+    <h3 class="text17">Advocate for accessible and reusable menstrual products in your community.</h3>
+  </section>
+
+  <section class="map">
+    <h1 class="text18">Interactive Map</h1>
+    <p class="text19"><br>Find out where you can find reusable menstrual products! Click on a location to view the specific store. Zoom in and out to find specific locations.<br><br></p>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+      <title>Washington State Map</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+      <style>
+        #map {
+          height: 500px;
+        }
+      </style>
+    </head>
+
+    <body>
+      <div id="map"></div>
+
+      <script>
+        var cities = [
+          { name: 'Redmond', latlng: [47.6739881, -122.121512], store: 'Target' },
+          { name: 'Bothell', latlng: [47.7623206, -122.2054036], store: 'Walmart' },
+          { name: 'Spokane', latlng: [47.6587802, -117.4260466], store: 'Thrive Natural Family Planning' },
+          { name: 'Olympia', latlng: [47.038047, -122.8991232], store: 'The Soap Chest' },
+          { name: 'Spokane', latlng: [47.6578351, -117.4264128], store: 'The Environmental Home Center' },
+          { name: 'Wenatchee', latlng: [47.4223858, -120.3103496], store: 'The Food Co-op' },
+          { name: 'Seattle', latlng: [47.6062095, -122.3320708], store: 'Eco Collective' },
+          { name: 'Moses Lake', latlng: [47.1282405, -119.2780771], store: 'Target' },
+          { name: 'Sunnyside', latlng: [46.3237477, -120.0086536], store: 'The Wild Mermaid' },
+          { name: 'Walla Walla', latlng: [46.0645809, -118.3430208], store: 'The Dreaming Goddess' },
+          { name: 'Kelso', latlng: [46.1467793, -122.9075948], store: 'Walmart' }
+        ];
+
+        var map = L.map('map').setView([47.5, -120.5], 7); // Set the view to Washington state
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+          maxZoom: 18
+        }).addTo(map);
+
+        // Load the GeoJSON data
+        fetch('washington.geojson')
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (geojson) {
+            L.geoJSON(geojson).addTo(map);
+          });
+
+        cities.forEach(function (city) {
+          var marker = L.marker(city.latlng).addTo(map).bindPopup(city.store);
+        });
+      </script>
+    </body>
+
+    </html>
+  </section>
+
+  <section class="lastsecsolution">
+    <a href="contacts.html" class="my-button-3">Contact Us! ></a>
+  </section>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+</body>
+
+</html>
